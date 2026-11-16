@@ -127,7 +127,7 @@ strings:
     shortVersion:        2026.11.15
     versionedName:       Kedi GNU/Linux 2026.11.15
     shortVersionedName:  Kedi GNU/Linux 2026.11.15
-    bootloaderEntryName: Kedi GNU/Linux
+    bootloaderEntryName: Kedi
     productUrl:          https://kedilinux.org/
     supportUrl:          https://kedilinux.org/wiki
     knownIssuesUrl:      https://github.com/kedilinux/kedilinux/issues
