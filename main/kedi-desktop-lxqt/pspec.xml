@@ -68,13 +68,6 @@
         </Files>
     </Package>
     <History>
-        <Update release="9">
-            <Date>2026-11-17</Date>
-            <Version>7</Version>
-            <Comment>Use the selected locale in desktop sessions</Comment>
-            <Name>Mandrusia</Name>
-            <Email>143601569+Mandrusian@users.noreply.github.com</Email>
-        </Update>
         <Update release="8">
             <Date>2026-11-16</Date>
             <Version>7</Version>
