@@ -1,3 +1,3 @@
-if [ "$(id -u)" = 0 ] && [ "$(tty)" = /dev/tty1 ] && [ -z "$DISPLAY" ]; then
-    startx /usr/bin/kedi-installer-session
+if [ "$(id -un)" = kedi ] && [ "$(tty)" = /dev/tty1 ] && [ -z "$DISPLAY" ]; then
+    startx /usr/bin/startlxqt
 fi

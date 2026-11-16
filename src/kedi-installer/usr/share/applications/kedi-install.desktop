@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Install Kedi GNU/Linux
+Name[tr]=Kedi GNU/Linux'u kur
+Exec=sh -c 'pkexec env DISPLAY="$DISPLAY" XAUTHORITY="$XAUTHORITY" calamares'
+Icon=calamares
+Categories=System;

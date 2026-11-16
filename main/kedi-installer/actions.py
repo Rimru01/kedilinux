@@ -16,4 +16,5 @@ def install():
     pisitools.insinto("/etc", "etc/calamares")
     pisitools.insinto("/etc", "etc/conf.d")
     pisitools.insinto("/etc", "etc/profile.d")
-    pisitools.dobin("usr/bin/kedi-installer-session")
+    pisitools.insinto("/usr/share/applications", "usr/share/applications/kedi-install.desktop")
+    pisitools.insinto("/etc/polkit-1/rules.d", "etc/polkit-1/rules.d/49-kedi-live.rules")
