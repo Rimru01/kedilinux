@@ -1,0 +1,38 @@
+#!/sbin/openrc-run
+
+description="Rebuild empty or missing initramfs images at shutdown"
+
+depend() {
+        need localmount
+}
+
+start() {
+        return 0
+}
+
+stop() {
+        [ -d /run/pisilive ] && return 0
+        rebuilt=0
+        for kernel in /boot/kernel-*; do
+                [ -f "$kernel" ] || continue
+                kver=${kernel#/boot/kernel-}
+                [ -d "/lib/modules/$kver" ] || continue
+                if [ ! -s "/boot/initramfs-$kver.img" ]; then
+                        ebegin "Building initramfs for $kver"
+                        mkinitcpio -k "$kver" -c /etc/mkinitcpio.conf -g "/boot/initramfs-$kver.img" >/dev/null 2>&1
+                        eend $?
+                        rebuilt=1
+                fi
+                if [ -e "/boot/initramfs-$kver-fallback.img" ] && [ ! -s "/boot/initramfs-$kver-fallback.img" ]; then
+                        ebegin "Building fallback initramfs for $kver"
+                        mkinitcpio -k "$kver" -g "/boot/initramfs-$kver-fallback.img" -S autodetect >/dev/null 2>&1
+                        eend $?
+                        rebuilt=1
+                fi
+        done
+        if [ "$rebuilt" = 1 ]; then
+                ebegin "Updating GRUB menu"
+                grub2-mkconfig -o /boot/grub2/grub.cfg >/dev/null 2>&1
+                eend $?
+        fi
+        return 0
