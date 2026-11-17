@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mkinitcpio-openrc</Name>
+        <Homepage>https://kedilinux.org</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>service</IsA>
+        <Summary>mkinitcpio-openrc is the init.d script required for mkinitcpio fix on OpenRC</Summary>
+        <Description>mkinitcpio-openrc is the init.d script required for mkinitcpio fix on OpenRC. This is for the base iso of Kedi Linux</Description>
+        <Archive sha1sum="51a32754be9cbdbb44e7102422f85133dccb96d5" type="binary">https://repo.kedilinux.org/init.d/mkinitcpio-openrc</Archive>
+    </Source>
+    <Package>
+        <Name>mkinitcpio-openrc</Name>
+        <RuntimeDependencies>
+            <Dependency>mkinitcpio</Dependency>
+            <Dependency>openrc</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/init.d</Path>
+        </Files>
+	<Provides>
+	    <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2026-11-12</Date>
+            <Version>1</Version>
+            <Comment>First release, for Kedi Linux</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>
