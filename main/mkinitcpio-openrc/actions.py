@@ -14,4 +14,4 @@ def build():
 
 def install():
     pisitools.doexe("mkinitcpio-openrc", "/etc/init.d")
-    pisitools.rename("/etc/init.d/mkinitcpio-openrc", "mkinitcpio"
+    pisitools.rename("/etc/init.d/mkinitcpio-openrc", "mkinitcpio")
